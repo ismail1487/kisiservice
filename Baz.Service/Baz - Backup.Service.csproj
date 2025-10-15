@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tools\**" />
+    <EmbeddedResource Remove="Tools\**" />
+    <None Remove="Tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Baz.AletKutusu" Version="1.0.1" />
+    <PackageReference Include="Baz.AOP.Logger.ExceptionLog" Version="1.0.2" />
+    <PackageReference Include="Baz.Mapper.Pattern" Version="1.0.0" />
+    <PackageReference Include="Baz.Mapper.Pattern.Entity" Version="1.0.1" />
+    <PackageReference Include="Baz.Model.Entity" Version="1.0.87" />
+    <PackageReference Include="Baz.Model.Pattern" Version="1.0.0" />
+    <PackageReference Include="Baz.ProcessResult" Version="1.0.5" />
+    <PackageReference Include="Baz.Repositories" Version="1.0.0" />
+    <PackageReference Include="Baz.Repository.Pattern" Version="1.0.5" />
+    <PackageReference Include="Baz.Repository.Pattern.Entity" Version="1.0.27" />
+    <PackageReference Include="Baz.RequestManager" Version="1.0.7" />
+    <PackageReference Include="Decor.Extensions.Microsoft.DependencyInjection" Version="2.0.5" />
+  </ItemGroup>
+
+</Project>
