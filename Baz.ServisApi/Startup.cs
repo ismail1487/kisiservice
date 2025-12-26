@@ -24,6 +24,7 @@ using System.Linq;
 using System.Text;
 using Baz.AletKutusu;
 using Baz.Service.Base;
+using Baz.Model.Entity.Constants;
 
 namespace Baz.KisiServisApi
 {
@@ -57,7 +58,7 @@ namespace Baz.KisiServisApi
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            SetCoreURL(Configuration.GetValue<string>("CoreUrl"));
+            SetCoreURL(Configuration);
             services.AddHttpContextAccessor();
             services.AddControllers(c => { c.Filters.Add(typeof(ModelValidationFilter), int.MinValue); });
             
@@ -192,9 +193,17 @@ namespace Baz.KisiServisApi
             return mapper;
         }
 
-        private static void SetCoreURL(string url)
+        private static void SetCoreURL(IConfiguration configuration)
         {
-            Model.Entity.Constants.LocalPortlar.CoreUrl = url;
+            Model.Entity.Constants.LocalPortlar.CoreUrl = configuration.GetValue<string>("CoreUrl");
+
+            var section = configuration.GetSection("LocalPortlar");
+            LocalPortlar.WebApp = section.GetValue<string>("WebApp");
+            LocalPortlar.UserLoginregisterService = section.GetValue<string>("UserLoginregisterService");
+            LocalPortlar.KisiServis = section.GetValue<string>("KisiServis");
+            LocalPortlar.MedyaKutuphanesiService = section.GetValue<string>("MedyaKutuphanesiService");
+            LocalPortlar.IYSService = section.GetValue<string>("IYSService");
+            LocalPortlar.KurumService = section.GetValue<string>("KurumService");
         }
     }
 }
