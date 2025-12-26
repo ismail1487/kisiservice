@@ -9,7 +9,7 @@ WORKDIR /src
 COPY ["bazkisi/Baz.ServisApi/Baz.KisiServisApi.csproj", "bazkisi/Baz.ServisApi/"]
 COPY ["bazkisi/Baz.Service/Baz.Service.csproj", "bazkisi/Baz.Service/"]
 COPY packages /src/packages
-RUN dotnet restore "bazkisi/Baz.ServisApi/Baz.KisiServisApi.csproj" --source https://https://nuget.cdn.azure.cn/v3/index.json --source /src/packages
+RUN dotnet restore "bazkisi/Baz.ServisApi/Baz.KisiServisApi.csproj" --source https://nuget.cdn.azure.cn/v3/index.json --source /src/packages
 COPY bazkisi/Baz.ServisApi bazkisi/Baz.ServisApi
 COPY bazkisi/Baz.Service bazkisi/Baz.Service
 WORKDIR "/src/bazkisi/Baz.ServisApi"
